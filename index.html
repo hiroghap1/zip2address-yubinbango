@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>郵便番号から住所を自動入力</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郵便番号から住所を自動入力</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" defer></script>
+  <style>
+    @media (max-width: 576px) {
+      input:not([type="tel"]) {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+<header><h1 class="container text-center mt-5 mb-5">郵便番号から住所を自動入力</h1></header>
+<main>
+  <section class="section">
+    <div class="container">
+      <h2>住所の入力項目が一つ</h2>
+      <form action="#" method="post" class="h-adr">
+        <span class="p-country-name" style="display:none;">Japan</span>
+        <dl class="row">
+          <dt class="col-3 d-flex align-items-center p-3 border border-bottom-0 bg-light form-label"><label class="m-0"
+                                                                                                            for="fullname">お名前</label>
+          </dt>
+          <dd class="col-9 d-flex align-items-center p-3 m-0 border border-left-0 border-bottom-0 form-item"><input
+                  type="text" name="fullname" id="fullname" placeholder="山田 太郎"></dd>
+          <dt class="col-3 d-flex align-items-center p-3 border border-bottom-0 bg-light form-label"><label class="m-0"
+                                                                                                            for="email">メールアドレス</label>
+          </dt>
+          <dd class="col-9 d-flex align-items-center p-3 m-0 border border-left-0 border-bottom-0 form-item"><input
+                  type="email" name="email" id="email" placeholder="info@example.com"></dd>
+          <dt class="col-3 d-flex align-items-center p-3 border bg-light form-label">住所</dt>
+          <dd class="col-9 d-flex justify-content-center flex-column p-3 m-0 border border-left-0 form-item">
+            <label>〒 <input type="tel" name="zip" placeholder="1234567" size="9" maxlength="8"
+                            class="p-postal-code"><br>
+            <span class="text-secondary">※住所は自動で入力されます</span></label>
+            <p class="m-0"><label>住所<br><input type="text" name="address"
+                                               class="p-region p-locality p-street-address p-extended-address"
+                                               size="40" placeholder="東京都千代田区千代田1-1"></label></p>
+            <label>マンション・建物名<br><input type="text" name="address2" size="40"></label>
+          </dd>
+        </dl>
+          <input type="submit" class="btn btn-success">
+      </form>
+    </div>
+  </section>
+    <section class="section mt-5">
+    <div class="container">
+      <h2>住所の入力項目が複数</h2>
+      <form action="#" method="post" class="h-adr">
+        <span class="p-country-name" style="display:none;">Japan</span>
+        <dl class="row">
+          <dt class="col-3 d-flex align-items-center p-3 border border-bottom-0 bg-light form-label"><label class="m-0"
+                                                                                                            for="fullname2">お名前</label>
+          </dt>
+          <dd class="col-9 d-flex align-items-center p-3 m-0 border border-left-0 border-bottom-0 form-item"><input
+                  type="text" name="fullname" id="fullname2" placeholder="山田 太郎"></dd>
+          <dt class="col-3 d-flex align-items-center p-3 border border-bottom-0 bg-light form-label"><label class="m-0"
+                                                                                                            for="email2">メールアドレス</label>
+          </dt>
+          <dd class="col-9 d-flex align-items-center p-3 m-0 border border-left-0 border-bottom-0 form-item"><input
+                  type="email" name="email" id="email2" placeholder="info@example.com"></dd>
+          <dt class="col-3 d-flex align-items-center p-3 border bg-light form-label">住所</dt>
+          <dd class="col-9 d-flex justify-content-center flex-column p-3 m-0 border border-left-0 form-item">
+            <label>〒 <input type="tel" name="zip" placeholder="1234567" size="9" maxlength="8"
+                            class="p-postal-code"><br>
+            <span class="text-secondary">※住所は自動で入力されます</span></label>
+            <p class="m-0"><label>都道府県 <input type="text" name="region" class="p-region" placeholder="東京都"></label></p>
+            <p class="m-0"><label>市町村区 <input type="text" name="locality" class="p-locality" placeholder="千代田区"></label></p>
+            <p class="m-0"><label>町域　　 <input type="text" name="street-address" class="p-street-address" placeholder="千代田"></label></p>
+            <p class="m-0"><label>町域以下 <input type="text" name="extended-address" class="p-extended-address" placeholder="1-1"></label></p>
+            <label>マンション・建物名<br><input type="text" name="address" size="40"></label>
+          </dd>
+        </dl>
+          <input type="submit" class="btn btn-success">
+      </form>
+    </div>
+  </section>
+</main>
 </body>
 </html>
